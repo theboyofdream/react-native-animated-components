@@ -1,11 +1,15 @@
-import { TamaguiProvider, Theme } from "@tamagui/core"
-import { PropsWithChildren } from "react"
+import { useThemeMode } from "@/hooks/useThemeMode"
+import { TamaguiProvider, Theme, ThemeProvider } from "@tamagui/core"
+import { PropsWithChildren, useEffect, useMemo } from "react"
 import { useColorScheme } from "react-native"
 import { PortalProvider, YStack } from "tamagui"
 import config from "~/tamagui.config"
 
-export default function Tamagui({ children }: PropsWithChildren) {
-  const colorScheme = useColorScheme()
+export function Tamagui({ children }: PropsWithChildren) {
+  const systemTheme = useColorScheme()
+  const { theme } = useThemeMode()
+  const colorScheme = theme === "auto" ? systemTheme : theme
+
   return (
     <TamaguiProvider config={config}>
       <Theme name={colorScheme}>

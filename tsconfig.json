@@ -1,6 +1,7 @@
 {
     "extends": "expo/tsconfig.base",
     "compilerOptions": {
+        "jsx": "react-native",
         "strict": true,
         "paths": {
             "~/*": [
@@ -9,10 +10,23 @@
             "@/*": [
                 "./src/*"
             ]
+        },
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/types"
+        ]
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "commonjs"
         }
     },
     "include": [
         "**/*.ts",
         "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        // "test/**/*"
     ]
 }

@@ -71,7 +71,6 @@ buck-out/
 bin/Exponent.app
 /android
 /ios
-expo-env.d.ts
 
 ## Secrets
 npm-debug.*
@@ -90,3 +89,10 @@ web-build/
 
 # Yarn
 .yarn/*
+
+# Lock files
+*-lock.json
+*.lock
+
+# Tamagui
+.tamagui
